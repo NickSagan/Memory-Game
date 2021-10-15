@@ -9,9 +9,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet var cardsCollection: [UIButton]!
+    
+    @IBAction func cardButtonPressed(_ sender: UIButton) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
 
 
