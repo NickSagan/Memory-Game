@@ -13,6 +13,8 @@
 		918388362719A374006A3B34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918388342719A374006A3B34 /* Main.storyboard */; };
 		918388382719A379006A3B34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918388372719A379006A3B34 /* Assets.xcassets */; };
 		9183883B2719A379006A3B34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918388392719A379006A3B34 /* LaunchScreen.storyboard */; };
+		918388432719B2FC006A3B34 /* MemoryLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918388422719B2FC006A3B34 /* MemoryLogic.swift */; };
+		918388452719C678006A3B34 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918388442719C678006A3B34 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		918388372719A379006A3B34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9183883A2719A379006A3B34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9183883C2719A37A006A3B34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		918388422719B2FC006A3B34 /* MemoryLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLogic.swift; sourceTree = "<group>"; };
+		918388442719C678006A3B34 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				918388372719A379006A3B34 /* Assets.xcassets */,
 				918388392719A379006A3B34 /* LaunchScreen.storyboard */,
 				9183883C2719A37A006A3B34 /* Info.plist */,
+				918388422719B2FC006A3B34 /* MemoryLogic.swift */,
+				918388442719C678006A3B34 /* Card.swift */,
 			);
 			path = "Memory Game";
 			sourceTree = "<group>";
@@ -139,7 +145,9 @@
 			files = (
 				918388332719A374006A3B34 /* ViewController.swift in Sources */,
 				9183882F2719A374006A3B34 /* AppDelegate.swift in Sources */,
+				918388452719C678006A3B34 /* Card.swift in Sources */,
 				918388312719A374006A3B34 /* SceneDelegate.swift in Sources */,
+				918388432719B2FC006A3B34 /* MemoryLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
