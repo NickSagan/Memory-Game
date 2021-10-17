@@ -9,18 +9,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var flipsLabel: UILabel!
     @IBOutlet var cardsCollection: [UIButton]!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     private lazy var game = MemoryLogic(numberOfPairsOfCards: numberOfPairsOfCards)
+    var numberOfPairsOfCards: Int {return (cardsCollection.count + 1) / 2}
+    private(set) var flipCounter = 0 { didSet { flipsLabel.text = "Flips: \(flipCounter)" } }
     
-    var numberOfPairsOfCards: Int {
-        //get {
-        return (cardsCollection.count + 1) / 2
-        //}
+    override func viewDidLoad() {
+        emojiArray = emojiPlant
     }
-    
-    private(set) var flipCounter = 0 { didSet { scoreLabel.text = "Flips: \(flipCounter)" } }
+
+    @IBAction func newGamePressed(_ sender: UIButton) {
+        emojiArray = emojiFruit
+        flipCounter = 0
+        game = MemoryLogic(numberOfPairsOfCards: numberOfPairsOfCards)
+        updateViewFromModel()
+    }
     
     @IBAction func cardButtonPressed(_ sender: UIButton) {
         flipCounter += 1
@@ -31,7 +37,7 @@ class ViewController: UIViewController {
         }
         
     }
-    
+
     private func updateViewFromModel() {
         for index in 0..<cardsCollection.count {
             let button = cardsCollection[index]
@@ -48,20 +54,31 @@ class ViewController: UIViewController {
         }
     }
     
-    private func flipCard(withEmoji emoji: String, on button: UIButton){
-        
-        if button.currentTitle == emoji {
-            button.setTitle("", for: UIControl.State.normal)
-            button.backgroundColor = .systemOrange
-        } else {
-            button.setTitle(emoji, for: UIControl.State.normal)
-            button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        }
-        
-    }
+//    private func flipCard(withEmoji emoji: String, on button: UIButton){
+//
+//        if button.currentTitle == emoji {
+//            button.setTitle("", for: UIControl.State.normal)
+//            button.backgroundColor = .systemOrange
+//        } else {
+//            button.setTitle(emoji, for: UIControl.State.normal)
+//            button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        }
+//
+//    }
     
-    private var emojiArray = ["🐻", "🦊", "🐷", "🐶", "🐸", "🐥", "🐰", "🐭", "🦁"]
+//MARK: - EMOJI SETTINGS
+    
+    private var emojiAnimal = ["🐻", "🦊", "🐷", "🐶", "🐸", "🐥", "🐰", "🐭", "🦁", "🐼", "🦋", "🐮"]
+    private var emojiFruit = ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍒", "🫐", "🥝", "🍍"]
+    private var emojiFood = ["🧀", "🍳", "🥞", "🌭", "🍔", "🍟", "🍕", "🥪", "🍗", "🥗", "🌮", "🍝"]
+    private var emojiTransport = ["🚗", "🚕", "🚑", "🚒", "🚎", "✈️", "🚁", "🚂", "🏍", "⛵️", "🚢", "🚛"]
+    private var emojiPlant = ["🌵", "🎄", "🌳", "🌴", "☘️", "🪴", "🍁", "🍄", "🌹", "🌻", "🌸", "🌼"]
+    private var emojiSport = ["⚽️", "🏀", "🏓", "🤿", "🏹", "🛼", "⛸", "🚴‍♂️", "🏆", "🥇", "🏂", "🛹"]
+    
+    
     private var emoji = [Int:String]()
+    
+    private var emojiArray = [String]()
     
     private func emoji(forCard card: Card) -> String {
         if emoji[card.identifier] == nil, emojiArray.count > 0 {

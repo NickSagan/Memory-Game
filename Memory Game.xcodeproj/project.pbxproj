@@ -15,6 +15,7 @@
 		9183883B2719A379006A3B34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918388392719A379006A3B34 /* LaunchScreen.storyboard */; };
 		918388432719B2FC006A3B34 /* MemoryLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918388422719B2FC006A3B34 /* MemoryLogic.swift */; };
 		918388452719C678006A3B34 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918388442719C678006A3B34 /* Card.swift */; };
+		91FAEFB1271C148500A08DE1 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9183883C2719A37A006A3B34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		918388422719B2FC006A3B34 /* MemoryLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLogic.swift; sourceTree = "<group>"; };
 		918388442719C678006A3B34 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				9183882E2719A374006A3B34 /* AppDelegate.swift */,
 				918388302719A374006A3B34 /* SceneDelegate.swift */,
 				918388322719A374006A3B34 /* ViewController.swift */,
+				91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */,
 				918388342719A374006A3B34 /* Main.storyboard */,
 				918388372719A379006A3B34 /* Assets.xcassets */,
 				918388392719A379006A3B34 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				918388332719A374006A3B34 /* ViewController.swift in Sources */,
 				9183882F2719A374006A3B34 /* AppDelegate.swift in Sources */,
 				918388452719C678006A3B34 /* Card.swift in Sources */,
+				91FAEFB1271C148500A08DE1 /* StartScreenViewController.swift in Sources */,
 				918388312719A374006A3B34 /* SceneDelegate.swift in Sources */,
 				918388432719B2FC006A3B34 /* MemoryLogic.swift in Sources */,
 			);

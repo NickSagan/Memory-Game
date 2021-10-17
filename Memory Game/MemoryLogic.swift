@@ -51,6 +51,7 @@ class MemoryLogic {
      
     init(numberOfPairsOfCards: Int) {
         assert(numberOfPairsOfCards > 0, "MemoryLogic.init - numberOfPairsOfCards must be greater then 0")
+        cards.removeAll()
         for _ in 1...numberOfPairsOfCards {
             let card = Card()
             cards += [card, card]
