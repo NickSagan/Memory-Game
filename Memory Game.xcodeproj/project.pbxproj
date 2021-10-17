@@ -16,6 +16,7 @@
 		918388432719B2FC006A3B34 /* MemoryLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918388422719B2FC006A3B34 /* MemoryLogic.swift */; };
 		918388452719C678006A3B34 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918388442719C678006A3B34 /* Card.swift */; };
 		91FAEFB1271C148500A08DE1 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */; };
+		91FAEFB3271C208000A08DE1 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FAEFB2271C208000A08DE1 /* Emoji.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		918388422719B2FC006A3B34 /* MemoryLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLogic.swift; sourceTree = "<group>"; };
 		918388442719C678006A3B34 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		91FAEFB2271C208000A08DE1 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				9183883C2719A37A006A3B34 /* Info.plist */,
 				918388422719B2FC006A3B34 /* MemoryLogic.swift */,
 				918388442719C678006A3B34 /* Card.swift */,
+				91FAEFB2271C208000A08DE1 /* Emoji.swift */,
 			);
 			path = "Memory Game";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				9183882F2719A374006A3B34 /* AppDelegate.swift in Sources */,
 				918388452719C678006A3B34 /* Card.swift in Sources */,
 				91FAEFB1271C148500A08DE1 /* StartScreenViewController.swift in Sources */,
+				91FAEFB3271C208000A08DE1 /* Emoji.swift in Sources */,
 				918388312719A374006A3B34 /* SceneDelegate.swift in Sources */,
 				918388432719B2FC006A3B34 /* MemoryLogic.swift in Sources */,
 			);

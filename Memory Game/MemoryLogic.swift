@@ -10,6 +10,16 @@ import Foundation
 class MemoryLogic {
     
     private(set) var cards = [Card]()
+    private var score = 0
+    private var flipCounter = 0
+    
+    func getScore() -> Int {
+        return score
+    }
+    
+    func getflipCounter() -> Int {
+        return flipCounter
+    }
     
     private var onlyOneFaceUpCard: Int? {
         get {
@@ -35,11 +45,14 @@ class MemoryLogic {
     func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "MemoryLogic.chooseCard() - index is not in the cards array")
         if !cards[index].isMatched {
+            flipCounter += 1
+            score -= 1
             if let matchIndex = onlyOneFaceUpCard, matchIndex != index {
                 // check if cards match
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    score += 10
                 }
                 cards[index].isFaceUp = true
             } else {

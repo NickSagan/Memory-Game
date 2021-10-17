@@ -13,23 +13,28 @@ class ViewController: UIViewController {
     @IBOutlet var cardsCollection: [UIButton]!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    //var emoji = Emoji()
     private lazy var game = MemoryLogic(numberOfPairsOfCards: numberOfPairsOfCards)
     var numberOfPairsOfCards: Int {return (cardsCollection.count + 1) / 2}
     private(set) var flipCounter = 0 { didSet { flipsLabel.text = "Flips: \(flipCounter)" } }
+    private(set) var scoreCounter = 0 { didSet { scoreLabel.text = "Score: \(scoreCounter)" } }
     
     override func viewDidLoad() {
-        emojiArray = emojiPlant
-    }
-
-    @IBAction func newGamePressed(_ sender: UIButton) {
-        emojiArray = emojiFruit
+        super.viewDidLoad()
         flipCounter = 0
+        scoreCounter = 0
         game = MemoryLogic(numberOfPairsOfCards: numberOfPairsOfCards)
         updateViewFromModel()
     }
+
+    @IBAction func newGamePressed(_ sender: UIButton) {
+ }
     
     @IBAction func cardButtonPressed(_ sender: UIButton) {
-        flipCounter += 1
+        //flipCounter += 1
+        
+        scoreCounter = game.getScore()
+        flipCounter = game.getflipCounter()
         
         if let cardNumber = cardsCollection.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber)
@@ -44,7 +49,7 @@ class ViewController: UIViewController {
             let card = game.cards[index]
             
             if card.isFaceUp {
-                button.setTitle(emoji(forCard: card), for: UIControl.State.normal)
+                button.setTitle(Emoji().getEmoji(forCard: card), for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
                 button.setTitle("", for: UIControl.State.normal)
@@ -66,38 +71,4 @@ class ViewController: UIViewController {
 //
 //    }
     
-//MARK: - EMOJI SETTINGS
-    
-    private var emojiAnimal = ["🐻", "🦊", "🐷", "🐶", "🐸", "🐥", "🐰", "🐭", "🦁", "🐼", "🦋", "🐮"]
-    private var emojiFruit = ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍒", "🫐", "🥝", "🍍"]
-    private var emojiFood = ["🧀", "🍳", "🥞", "🌭", "🍔", "🍟", "🍕", "🥪", "🍗", "🥗", "🌮", "🍝"]
-    private var emojiTransport = ["🚗", "🚕", "🚑", "🚒", "🚎", "✈️", "🚁", "🚂", "🏍", "⛵️", "🚢", "🚛"]
-    private var emojiPlant = ["🌵", "🎄", "🌳", "🌴", "☘️", "🪴", "🍁", "🍄", "🌹", "🌻", "🌸", "🌼"]
-    private var emojiSport = ["⚽️", "🏀", "🏓", "🤿", "🏹", "🛼", "⛸", "🚴‍♂️", "🏆", "🥇", "🏂", "🛹"]
-    
-    
-    private var emoji = [Int:String]()
-    
-    private var emojiArray = [String]()
-    
-    private func emoji(forCard card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiArray.count > 0 {
-            emoji[card.identifier] = emojiArray.remove(at: emojiArray.count.arc4random)
-        }
-        return emoji[card.identifier] ?? "?"
-    }
-}
-
-//MARK: - Int extension for random generation
-
-extension Int {
-    var arc4random: Int {
-        if self > 0 {
-            return Int(arc4random_uniform(UInt32(self)))
-        } else if self < 0 {
-            return -Int(arc4random_uniform(UInt32(abs(self))))
-        } else {
-            return 0
-        }
-    }
 }
