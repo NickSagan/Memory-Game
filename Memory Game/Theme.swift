@@ -25,14 +25,14 @@ class Theme {
     var emojiPlant = ["🌵", "🎄", "🌳", "🌴", "☘️", "🪴", "🍁", "🍄", "🌹", "🌻", "🌸", "🌼"]
     var emojiSport = ["⚽️", "🏀", "🏓", "🤿", "🏹", "🛼", "⛸", "🚴‍♂️", "🏆", "🥇", "🏂", "🛹"]
     
-    private static var emoji = [Int:String]()
+    private static var emoji = [Card:String]()
     static var emojiArray = [String]()
     
     func getEmoji(forCard card: Card) -> String {
-        if Theme.emoji[card.identifier] == nil, Theme.emojiArray.count > 0 {
-            Theme.emoji[card.identifier] = Theme.emojiArray.remove(at: Theme.emojiArray.count.arc4random)
+        if Theme.emoji[card] == nil, Theme.emojiArray.count > 0 {
+            Theme.emoji[card] = Theme.emojiArray.remove(at: Theme.emojiArray.count.arc4random)
         }
-        return Theme.emoji[card.identifier] ?? "?"
+        return Theme.emoji[card] ?? "?"
     }
     
     func refreshEmojiArray() {

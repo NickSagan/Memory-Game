@@ -37,21 +37,8 @@ class MemoryLogic {
     // this var is to save ID of the only one opened card on the playground - эта переменная хранит айдишник единственной открытой карты на поле
     private var onlyOneFaceUpCard: Int? {
         get {
-            var foundIndex: Int?
-            // go through the array of cards - пробегаем по массиву карт
-            for index in cards.indices {
-                // to find any already faced up card - чтобы найти уже открытую карту
-                if cards[index].isFaceUp {
-                    // if a faced up card found we will either return nil, if it is not the first one, or we will assign this card's index to foundIndex - если нашлась какая-то открытая карта, то мы либо вернем нил, если это не единственная карта на поле, либо присвоем индекс этой карты в переменную foundIndex
-                    if foundIndex == nil {
-                        foundIndex = index
-                    } else {
-                        return nil
-                    }
-                }
-            }
-            // returns nil or index of the only-one-open-faced-card on the field - возвращаем нил или индекс единственной открытой карты на поле
-            return foundIndex
+            // filter вернет массив значений удовлетворяющих условиям closure
+            return cards.indices.filter { cards[$0].isFaceUp }.oneAndOnly
         }
         set {
             // If index of onlyOneFaceUpCard was setted from outside, then we go through the array of cards to face them all down, except this one index card - Если индекс единственной карты даётся извне, то пробегаем по массиву, кладём эту карту лицом вверх, а все остальные карты кладём лицом вниз.
@@ -79,7 +66,7 @@ class MemoryLogic {
             // Check if there is already opened card and if index of new card is equal to this opened card - сверяем индекс новой карты с возможным индексом уже открытой карты
             if let matchIndex = onlyOneFaceUpCard, matchIndex != index {
                 // check if cards match - проверяем на совпадение с уже открытой картой
-                if cards[matchIndex].identifier == cards[index].identifier {
+                if cards[matchIndex] == cards[index] {
                     // and if they match we set them both as .isMatched - и если совпали, то помечаем обе карты, как открытые
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
@@ -136,4 +123,10 @@ class MemoryLogic {
         
     }
     
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
+    }
 }
