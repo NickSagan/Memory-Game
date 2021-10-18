@@ -13,10 +13,20 @@ class MemoryLogic {
     private(set) var cards = [Card]()
     private var score = 0
     private var flipCounter = 0
+    private(set) var matchCounter: Int
+    private(set) var winGame = false {
+        didSet {
+            for var card in cards {
+                card.isFaceUp = false
+                card.isMatched = true
+                
+            }
+        }
+    }
     
     // returning current score - Возвращаем очки
-    func getScore() -> Int {
-        return score
+    func getScore(timer: Int) -> Int {
+        return score - timer
     }
     
     // returning current flips - Возвращаем кол-во открытий карт
@@ -53,6 +63,9 @@ class MemoryLogic {
     
     // this func works when user taps any card - функция отрабатывает при нажатии на карту
     func chooseCard(at index: Int) {
+        if winGame {
+            return
+        }
         // check if card's index is in array of cards of force crash - проверяем, что пришедший индекс находится в массиве всех карт, иначе крэшим со следующим сообщением
         assert(cards.indices.contains(index), "MemoryLogic.chooseCard() - index is not in the cards array")
         
@@ -70,7 +83,16 @@ class MemoryLogic {
                     // and if they match we set them both as .isMatched - и если совпали, то помечаем обе карты, как открытые
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
-                    score += 10
+                    
+                    // Add some points to score - Добавляем очки
+                    score += 20
+                    // Decrease match counter by 1. Уменьшаем счетчик совпадений на 1
+                    matchCounter -= 1
+                    
+                    // Check a win statement: when all cards matched - Проверяем на выигрыш, когда все пары карт совпали
+                    if matchCounter == 0 {
+                        winGame = true
+                    }
                 }
                 // else we just mark it as opened - иначе помечаем эту карту, как открытую
                 cards[index].isFaceUp = true
@@ -82,6 +104,10 @@ class MemoryLogic {
     }
      
     init(numberOfPairsOfCards: Int) {
+        
+        // Setting match counter to number of pairs - заряжаем счетчик на кол-во пар карт
+        matchCounter = numberOfPairsOfCards
+        
         //  Checking incoming "numberOfPairsOfCards" to be greater then 0. If it is not, then we crash app with following message. Проверяем, что нам пришло большее чем ноль кол-во пар карт иначе крэшим с нижеследующим сообщением
         assert(numberOfPairsOfCards > 0, "MemoryLogic.init - numberOfPairsOfCards must be greater then 0")
         
@@ -103,6 +129,11 @@ class MemoryLogic {
     // Shuffle array of cards - Перетасовываем карты в массиве
     private func shuffleCards() {
         cards.shuffle()
+    }
+    
+    
+    func win() {
+        
     }
     
 }

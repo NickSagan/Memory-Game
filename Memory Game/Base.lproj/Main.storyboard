@@ -25,7 +25,7 @@
                                         <color key="backgroundColor" white="0.21802307959316539" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="96"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
-                                        <state key="normal" title="Play">
+                                        <state key="normal" title="Играть">
                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                         </state>
@@ -293,9 +293,9 @@
                                 <rect key="frame" x="20" y="1320" width="984" height="46"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmv-e8-X9P">
-                                        <rect key="frame" x="0.0" y="0.0" width="324.5" height="46"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="242.5" height="46"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" title="New Game">
+                                        <state key="normal" title="Новая Игра">
                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                         </state>
                                         <connections>
@@ -304,27 +304,41 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RS2-kp-XwK">
-                                        <rect key="frame" x="329.5" y="0.0" width="325" height="46"/>
+                                        <rect key="frame" x="247.5" y="0.0" width="242" height="46"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" systemColor="systemOrangeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh9-cQ-THP">
-                                        <rect key="frame" x="659.5" y="0.0" width="324.5" height="46"/>
+                                        <rect key="frame" x="494.5" y="0.0" width="242.5" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" systemColor="systemOrangeColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exB-iL-Fmc">
+                                        <rect key="frame" x="742" y="0.0" width="242" height="46"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" systemColor="systemOrangeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПОБЕДА!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F44-Xd-zpy">
+                                <rect key="frame" x="282.5" y="618.5" width="459.5" height="129"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="108"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aCR-5z-bfC" secondAttribute="trailing" constant="20" id="4NQ-2Y-K2d"/>
                             <constraint firstItem="k7b-ds-vgh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5vm-dz-ZR0"/>
+                            <constraint firstItem="F44-Xd-zpy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6u9-Yt-SHy"/>
                             <constraint firstItem="aCR-5z-bfC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="OWM-7Z-Suy"/>
                             <constraint firstItem="k7b-ds-vgh" firstAttribute="firstBaseline" relation="greaterThanOrEqual" secondItem="aCR-5z-bfC" secondAttribute="baseline" constant="20" id="XpO-Kk-Twj"/>
+                            <constraint firstItem="F44-Xd-zpy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bpx-3k-auT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="k7b-ds-vgh" secondAttribute="bottom" id="lKW-ig-Kbd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k7b-ds-vgh" secondAttribute="trailing" constant="20" id="oXf-Af-ciq"/>
                             <constraint firstItem="aCR-5z-bfC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="yCh-cB-KWb"/>
@@ -334,6 +348,8 @@
                     <connections>
                         <outlet property="flipsLabel" destination="RS2-kp-XwK" id="EO4-BP-E9e"/>
                         <outlet property="scoreLabel" destination="kh9-cQ-THP" id="c7d-9x-TU3"/>
+                        <outlet property="timerLabel" destination="exB-iL-Fmc" id="7nV-eU-3ai"/>
+                        <outlet property="winLabel" destination="F44-Xd-zpy" id="SZy-iA-fPh"/>
                         <outletCollection property="cardsCollection" destination="OYQ-Ny-fDL" collectionClass="NSMutableArray" id="uq4-K2-UXI"/>
                         <outletCollection property="cardsCollection" destination="vCG-oK-DNm" collectionClass="NSMutableArray" id="mr0-MZ-Ydv"/>
                         <outletCollection property="cardsCollection" destination="En2-Xv-Qeg" collectionClass="NSMutableArray" id="7tr-VZ-SBN"/>

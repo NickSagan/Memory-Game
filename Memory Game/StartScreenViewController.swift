@@ -17,7 +17,12 @@ class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPic
         super.viewDidLoad()
         emojiThemePicker.dataSource = self
         emojiThemePicker.delegate = self
-        emoji.setTheme(set: "Animal")
+        emoji.setTheme(set: "Животные")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Refreshing emoji array in case user will not chose any theme after New Game button pressed. Because viewDidLoad will not setTheme again anymore. - Обновляем массив с эмоджи на случай, если юзер не выберет новую тему при создании новой игры. Потому что viewDidLoad больше не будет этого делать, как в первый раз.
+        emoji.refreshEmojiArray()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

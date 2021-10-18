@@ -9,8 +9,8 @@ import UIKit
 
 class Theme {
     
-    var theme = ["Animal", "Fruit", "Food", "Transport", "Plant", "Sport"]
-    private var selectedTheme = "Animal"
+    var theme = ["Животные", "Фрукты", "Еда", "Транспорт", "Растения", "Спорт"]
+    private var selectedTheme = "Животные"
     static var bgcolor: UIColor = .systemBlue
     
     func setTheme(set theme: String){
@@ -37,20 +37,21 @@ class Theme {
     
     func refreshEmojiArray() {
         switch selectedTheme {
-        case "Animal": Theme.emojiArray = emojiAnimal
+        case "Животные": Theme.emojiArray = emojiAnimal
             Theme.bgcolor = .systemOrange
-        case "Fruit": Theme.emojiArray = emojiFruit
+        case "Фрукты": Theme.emojiArray = emojiFruit
             Theme.bgcolor = .systemRed
-        case "Food": Theme.emojiArray = emojiFood
+        case "Еда": Theme.emojiArray = emojiFood
             Theme.bgcolor = .systemYellow
-        case "Transport": Theme.emojiArray = emojiTransport
+        case "Транспорт": Theme.emojiArray = emojiTransport
             Theme.bgcolor = .systemBlue
-        case "Plant": Theme.emojiArray = emojiPlant
+        case "Растения": Theme.emojiArray = emojiPlant
             Theme.bgcolor = .systemGreen
-        case "Sport": Theme.emojiArray = emojiSport
+        case "Спорт": Theme.emojiArray = emojiSport
             Theme.bgcolor = .systemPurple
         default: Theme.emojiArray = emojiAnimal
         }
+        print(Theme.emojiArray)
     }
 }
 
