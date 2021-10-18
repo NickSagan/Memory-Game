@@ -1,19 +1,21 @@
 //
-//  Emoji.swift
+//  Theme.swift
 //  Memory Game
 //
 //  Created by Nick Sagan on 17.10.2021.
 //
 
-import Foundation
+import UIKit
 
-class Emoji {
+class Theme {
     
     var theme = ["Animal", "Fruit", "Food", "Transport", "Plant", "Sport"]
-    var selectedTheme = "Animal"
+    private var selectedTheme = "Animal"
+    static var bgcolor: UIColor = .systemBlue
     
     func setTheme(set theme: String){
         selectedTheme = theme
+        refreshEmojiArray()
     }
     
     var emojiAnimal = ["🐻", "🦊", "🐷", "🐶", "🐸", "🐥", "🐰", "🐭", "🦁", "🐼", "🦋", "🐮"]
@@ -27,26 +29,33 @@ class Emoji {
     static var emojiArray = [String]()
     
     func getEmoji(forCard card: Card) -> String {
-        if Emoji.emoji[card.identifier] == nil, Emoji.emojiArray.count > 0 {
-            Emoji.emoji[card.identifier] = Emoji.emojiArray.remove(at: Emoji.emojiArray.count.arc4random)
+        if Theme.emoji[card.identifier] == nil, Theme.emojiArray.count > 0 {
+            Theme.emoji[card.identifier] = Theme.emojiArray.remove(at: Theme.emojiArray.count.arc4random)
         }
-        return Emoji.emoji[card.identifier] ?? "?"
+        return Theme.emoji[card.identifier] ?? "?"
     }
     
     func refreshEmojiArray() {
         switch selectedTheme {
-        case "Animal": Emoji.emojiArray = emojiAnimal
-        case "Fruit": Emoji.emojiArray = emojiFruit
-        case "Food": Emoji.emojiArray = emojiFood
-        case "Transport": Emoji.emojiArray = emojiTransport
-        case "Plant": Emoji.emojiArray = emojiPlant
-        case "Sport": Emoji.emojiArray = emojiSport
-        default: Emoji.emojiArray = emojiAnimal
+        case "Animal": Theme.emojiArray = emojiAnimal
+            Theme.bgcolor = .systemOrange
+        case "Fruit": Theme.emojiArray = emojiFruit
+            Theme.bgcolor = .systemRed
+        case "Food": Theme.emojiArray = emojiFood
+            Theme.bgcolor = .systemYellow
+        case "Transport": Theme.emojiArray = emojiTransport
+            Theme.bgcolor = .systemBlue
+        case "Plant": Theme.emojiArray = emojiPlant
+            Theme.bgcolor = .systemGreen
+        case "Sport": Theme.emojiArray = emojiSport
+            Theme.bgcolor = .systemPurple
+        default: Theme.emojiArray = emojiAnimal
         }
     }
 }
 
 //MARK: - Int extension for random generation
+// Экстеншен для Int для генерации случайных чисел.
 
 extension Int {
     var arc4random: Int {

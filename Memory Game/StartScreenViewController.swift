@@ -10,13 +10,14 @@ import UIKit
 class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){}
-    var emoji = Emoji()
+    var emoji = Theme()
     @IBOutlet weak var emojiThemePicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emojiThemePicker.dataSource = self
         emojiThemePicker.delegate = self
+        emoji.setTheme(set: "Animal")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -34,10 +35,6 @@ class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPic
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         emoji.setTheme(set: emoji.theme[row])
         //someMaybeLabel.text = emoji.theme[row]
-        print(emoji.selectedTheme)
-        print(emoji.theme)
-        emoji.refreshEmojiArray()
-        print(Emoji.emojiArray)
     }
     
 }
