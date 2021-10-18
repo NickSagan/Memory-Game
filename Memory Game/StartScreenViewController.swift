@@ -18,6 +18,7 @@ class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPic
         emojiThemePicker.dataSource = self
         emojiThemePicker.delegate = self
         emoji.setTheme(set: "Животные")
+        view.backgroundColor = Theme.backgroundColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +40,7 @@ class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         emoji.setTheme(set: emoji.theme[row])
+        view.backgroundColor = Theme.backgroundColor
         //someMaybeLabel.text = emoji.theme[row]
     }
     

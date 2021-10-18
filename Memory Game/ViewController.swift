@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var newGameButtonOutlet: UIButton!
     
     private lazy var game = MemoryLogic(numberOfPairsOfCards: numberOfPairsOfCards)
     var numberOfPairsOfCards: Int {return (cardsCollection.count + 1) / 2}
@@ -33,6 +34,11 @@ class ViewController: UIViewController {
         updateViewFromModel()
         winLabel.isEnabled = false
         winLabel.isHidden = true
+        view.backgroundColor = Theme.backgroundColor
+        flipsLabel.textColor = Theme.cardBackColor
+        scoreLabel.textColor = Theme.cardBackColor
+        timerLabel.textColor = Theme.cardBackColor
+        newGameButtonOutlet.setTitleColor(Theme.cardBackColor, for: UIControl.State.normal)
     }
 
     // returns to Root View - Возврат на стартовую страницу
@@ -75,10 +81,10 @@ class ViewController: UIViewController {
             
             if card.isFaceUp {
                 button.setTitle(Theme().getEmoji(forCard: card), for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                button.backgroundColor = Theme.cardFrontColor
             } else {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 0) : Theme.bgcolor
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 0) : Theme.cardBackColor
             }
         }
     }
