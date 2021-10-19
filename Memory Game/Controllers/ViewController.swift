@@ -49,6 +49,9 @@ class ViewController: UIViewController {
         scoreLabel.textColor = Theme.cardBackColor
         timerLabel.textColor = Theme.cardBackColor
         newGameButtonOutlet.setTitleColor(Theme.cardBackColor, for: UIControl.State.normal)
+        newGameButtonOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
+        print(newGameButtonOutlet!)
+        
     }
 
     // This button returns to Root View
@@ -96,6 +99,10 @@ class ViewController: UIViewController {
             let button = cardsCollection[index]
             let card = game.cards[index]
             
+            button.titleLabel?.numberOfLines = 1
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            button.titleLabel?.lineBreakMode = .byClipping
+            
             if card.isFaceUp {
                 button.setTitle(Theme().getEmoji(forCard: card), for: UIControl.State.normal)
                 button.backgroundColor = Theme.cardFrontColor
@@ -115,7 +122,11 @@ class ViewController: UIViewController {
             cardsCollection[index].backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 0)
         }
         
-        // Show WIN label
+        // Show WIN label and autoresize it so it will fit any device
+        winLabel.adjustsFontSizeToFitWidth = true
+        winLabel.numberOfLines = 1
+        winLabel.lineBreakMode = .byClipping
+
         winLabel.isHidden = false
         winLabel.isEnabled = true
         
