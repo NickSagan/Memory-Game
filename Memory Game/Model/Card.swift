@@ -7,24 +7,25 @@
 
 import Foundation
 
+// Hashable protocol used so we can hash our cards
 struct Card: Hashable {
 
+    // Hashing card by their ID
     func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)
     }
-    
     static func ==(lhs: Card, rhs: Card) -> Bool {
         return lhs.identifier == rhs.identifier
     }
     
-    // By default any card is NOT matched and Face down - По умолчанию карты генерятся, как несовпавшие и лицом вниз
+    // By default any card is NOT matched and Faced down
     var isFaceUp = false
     var isMatched = false
     
-    // Every new card will have it's own ID - каждая сгенерированная карта получает свой ID
+    // Every new card will have it's own identifier
     private var identifier: Int
     
-    // ID Fabcric. Creates new ID at the initialisation moment. Генератор ID. Генерит уникальные айдишники при инициализации карты.
+    // ID Fabcric. Creates unique identifier at the initialisation moment
     private static var idGenerator = 0
     private static func getUniqueID() -> Int {
         idGenerator += 1

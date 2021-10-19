@@ -9,8 +9,8 @@ import UIKit
 
 class Theme {
     
-    var theme = ["Животные", "Фрукты", "Еда", "Транспорт", "Растения", "Спорт"]
-    private var selectedTheme = "Животные"
+    var theme = ["Animals", "Fruits", "Food", "Transport", "Plants", "Sport"]
+    private var selectedTheme = "Animals"
     static var backgroundColor: UIColor = .systemBlue
     static var cardBackColor: UIColor = .systemBlue
     static var cardFrontColor: UIColor = .systemBlue
@@ -39,27 +39,27 @@ class Theme {
     
     func refreshEmojiArray() {
         switch selectedTheme {
-        case "Животные": Theme.emojiArray = emojiAnimal
+        case "Animals": Theme.emojiArray = emojiAnimal
             Theme.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.7764705882, blue: 0.6470588235, alpha: 1)
             Theme.cardBackColor = #colorLiteral(red: 1, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
             Theme.cardFrontColor = #colorLiteral(red: 0.9529411765, green: 0.9411764706, blue: 0.8431372549, alpha: 1)
-        case "Фрукты": Theme.emojiArray = emojiFruit
+        case "Fruits": Theme.emojiArray = emojiFruit
             Theme.backgroundColor = #colorLiteral(red: 0.8078431373, green: 0.8980392157, blue: 0.8156862745, alpha: 1)
             Theme.cardBackColor = #colorLiteral(red: 1, green: 0.4705882353, blue: 0.4705882353, alpha: 1)
             Theme.cardFrontColor = #colorLiteral(red: 0.9529411765, green: 0.9411764706, blue: 0.8431372549, alpha: 1)
-        case "Еда": Theme.emojiArray = emojiFood
+        case "Food": Theme.emojiArray = emojiFood
             Theme.backgroundColor = #colorLiteral(red: 0.4235294118, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
             Theme.cardBackColor = #colorLiteral(red: 0.7843137255, green: 0.5843137255, blue: 0.5843137255, alpha: 1)
             Theme.cardFrontColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
-        case "Транспорт": Theme.emojiArray = emojiTransport
+        case "Transport": Theme.emojiArray = emojiTransport
             Theme.backgroundColor = .systemGray
             Theme.cardBackColor = #colorLiteral(red: 1, green: 0.5254901961, blue: 0.368627451, alpha: 1)
             Theme.cardFrontColor = #colorLiteral(red: 0.9960784314, green: 0.9764705882, blue: 0.937254902, alpha: 1)
-        case "Растения": Theme.emojiArray = emojiPlant
+        case "Plants": Theme.emojiArray = emojiPlant
             Theme.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.3176470588, blue: 0.1568627451, alpha: 1)
             Theme.cardBackColor = #colorLiteral(red: 0.3058823529, green: 0.6235294118, blue: 0.2392156863, alpha: 1)
             Theme.cardFrontColor = #colorLiteral(red: 0.8470588235, green: 0.9137254902, blue: 0.6588235294, alpha: 1)
-        case "Спорт": Theme.emojiArray = emojiSport
+        case "Sport": Theme.emojiArray = emojiSport
             Theme.backgroundColor = #colorLiteral(red: 0.4274509804, green: 0.5960784314, blue: 0.5254901961, alpha: 1)
             Theme.cardBackColor = #colorLiteral(red: 0.8509803922, green: 0.7921568627, blue: 0.7019607843, alpha: 1)
             Theme.cardFrontColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
@@ -70,7 +70,6 @@ class Theme {
 }
 
 //MARK: - Int extension for random generation
-// Экстеншен для Int для генерации случайных чисел.
 
 extension Int {
     var arc4random: Int {
