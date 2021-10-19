@@ -5,10 +5,21 @@
 //  Created by Nick Sagan on 15.10.2021.
 //
 
+import AVFoundation
 import Foundation
 
 // main game logic - основная логика игры
 class MemoryLogic {
+    
+    // Instance of audioplayer
+    var player: AVAudioPlayer!
+    
+    // This func will play a sound with given "name"
+    func playSound(_ name: String) {
+        let url = Bundle.main.url(forResource: "\(name)", withExtension: "wav")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player!.play()
+    }
     
     private(set) var cards = [Card]()
     private var score = 0
@@ -16,6 +27,7 @@ class MemoryLogic {
     private(set) var matchCounter: Int
     private(set) var winGame = false {
         didSet {
+            playSound("win")
             for var card in cards {
                 card.isFaceUp = false
                 card.isMatched = true
@@ -67,6 +79,10 @@ class MemoryLogic {
             if let matchIndex = onlyOneFaceUpCard, matchIndex != index {
                 // check if cards match - проверяем на совпадение с уже открытой картой
                 if cards[matchIndex] == cards[index] {
+                    
+                    // Play match sound
+                    playSound("match")
+                    
                     // and if they match we set them both as .isMatched - и если совпали, то помечаем обе карты, как открытые
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true

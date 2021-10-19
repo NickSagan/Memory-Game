@@ -15,6 +15,9 @@
 		9183883B2719A379006A3B34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918388392719A379006A3B34 /* LaunchScreen.storyboard */; };
 		918388432719B2FC006A3B34 /* MemoryLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918388422719B2FC006A3B34 /* MemoryLogic.swift */; };
 		918388452719C678006A3B34 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918388442719C678006A3B34 /* Card.swift */; };
+		91AB37D0271EEEE800B66F0F /* SimpleSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB37CF271EEEE800B66F0F /* SimpleSound.swift */; };
+		91AB37D4271EF0E800B66F0F /* match.wav in Resources */ = {isa = PBXBuildFile; fileRef = 91AB37D2271EF0E800B66F0F /* match.wav */; };
+		91AB37D5271EF0E800B66F0F /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 91AB37D3271EF0E800B66F0F /* win.wav */; };
 		91FAEFB1271C148500A08DE1 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */; };
 		91FAEFB3271C208000A08DE1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FAEFB2271C208000A08DE1 /* Theme.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +33,9 @@
 		9183883C2719A37A006A3B34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		918388422719B2FC006A3B34 /* MemoryLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLogic.swift; sourceTree = "<group>"; };
 		918388442719C678006A3B34 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		91AB37CF271EEEE800B66F0F /* SimpleSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSound.swift; sourceTree = "<group>"; };
+		91AB37D2271EF0E800B66F0F /* match.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = match.wav; sourceTree = "<group>"; };
+		91AB37D3271EF0E800B66F0F /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		91FAEFB2271C208000A08DE1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,19 +70,54 @@
 		9183882D2719A374006A3B34 /* Memory Game */ = {
 			isa = PBXGroup;
 			children = (
+				91AB37D6271EF0FC00B66F0F /* Model */,
+				91AB37D7271EF10400B66F0F /* View */,
+				91AB37D8271EF10A00B66F0F /* Controllers */,
+				918388372719A379006A3B34 /* Assets.xcassets */,
+				91AB37D1271EF0BF00B66F0F /* Sounds */,
+				9183883C2719A37A006A3B34 /* Info.plist */,
 				9183882E2719A374006A3B34 /* AppDelegate.swift */,
 				918388302719A374006A3B34 /* SceneDelegate.swift */,
-				918388322719A374006A3B34 /* ViewController.swift */,
-				91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */,
-				918388342719A374006A3B34 /* Main.storyboard */,
-				918388372719A379006A3B34 /* Assets.xcassets */,
-				918388392719A379006A3B34 /* LaunchScreen.storyboard */,
-				9183883C2719A37A006A3B34 /* Info.plist */,
+			);
+			path = "Memory Game";
+			sourceTree = "<group>";
+		};
+		91AB37D1271EF0BF00B66F0F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				91AB37D2271EF0E800B66F0F /* match.wav */,
+				91AB37D3271EF0E800B66F0F /* win.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		91AB37D6271EF0FC00B66F0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				918388422719B2FC006A3B34 /* MemoryLogic.swift */,
 				918388442719C678006A3B34 /* Card.swift */,
 				91FAEFB2271C208000A08DE1 /* Theme.swift */,
+				91AB37CF271EEEE800B66F0F /* SimpleSound.swift */,
 			);
-			path = "Memory Game";
+			path = Model;
+			sourceTree = "<group>";
+		};
+		91AB37D7271EF10400B66F0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				918388342719A374006A3B34 /* Main.storyboard */,
+				918388392719A379006A3B34 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91AB37D8271EF10A00B66F0F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				918388322719A374006A3B34 /* ViewController.swift */,
+				91FAEFB0271C148500A08DE1 /* StartScreenViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +179,8 @@
 			files = (
 				9183883B2719A379006A3B34 /* LaunchScreen.storyboard in Resources */,
 				918388382719A379006A3B34 /* Assets.xcassets in Resources */,
+				91AB37D4271EF0E800B66F0F /* match.wav in Resources */,
+				91AB37D5271EF0E800B66F0F /* win.wav in Resources */,
 				918388362719A374006A3B34 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +199,7 @@
 				91FAEFB3271C208000A08DE1 /* Theme.swift in Sources */,
 				918388312719A374006A3B34 /* SceneDelegate.swift in Sources */,
 				918388432719B2FC006A3B34 /* MemoryLogic.swift in Sources */,
+				91AB37D0271EEEE800B66F0F /* SimpleSound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

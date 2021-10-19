@@ -18,9 +18,9 @@ class ViewController: UIViewController {
     
     private lazy var game = MemoryLogic(numberOfPairsOfCards: numberOfPairsOfCards)
     var numberOfPairsOfCards: Int {return (cardsCollection.count + 1) / 2}
-    private(set) var flipCounter = 0 { didSet { flipsLabel.text = "Ходы: \(flipCounter)" } }
-    private(set) var scoreCounter = 0 { didSet { scoreLabel.text = "Очки: \(scoreCounter)" } }
-    private(set) var gameTimer = 0 { didSet { timerLabel.text = "Время: \(gameTimer)" } }
+    private(set) var flipCounter = 0 { didSet { flipsLabel.text = "Flips: \(flipCounter)" } }
+    private(set) var scoreCounter = 0 { didSet { scoreLabel.text = "Score: \(scoreCounter)" } }
+    private(set) var gameTimer = 0 { didSet { timerLabel.text = "Time: \(gameTimer)" } }
     
     var timerIsActive = false
     var myTimer = Timer()
@@ -90,6 +90,7 @@ class ViewController: UIViewController {
     }
     
     private func winGame() {
+        
         for index in 0..<cardsCollection.count {
             cardsCollection[index].setTitle("", for: UIControl.State.normal)
             cardsCollection[index].backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 0)
