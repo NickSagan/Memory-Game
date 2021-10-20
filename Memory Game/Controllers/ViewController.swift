@@ -43,14 +43,13 @@ class ViewController: UIViewController {
         winLabel.isEnabled = false
         winLabel.isHidden = true
         
-        // apply selected theme's colours
-        view.backgroundColor = Theme.backgroundColor
-        flipsLabel.textColor = Theme.cardBackColor
-        scoreLabel.textColor = Theme.cardBackColor
-        timerLabel.textColor = Theme.cardBackColor
-        newGameButtonOutlet.setTitleColor(Theme.cardBackColor, for: UIControl.State.normal)
+        //  Autoresize New Game button so it will fit its width
         newGameButtonOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
-        print(newGameButtonOutlet!)
+ 
+        // Set corner radius to all the cards
+        for index in 0..<cardsCollection.count {
+            cardsCollection[index].layer.cornerRadius = cardsCollection[index].intrinsicContentSize.height/5
+        }
         
     }
 
@@ -124,11 +123,13 @@ class ViewController: UIViewController {
         
         // Show WIN label and autoresize it so it will fit any device
         winLabel.adjustsFontSizeToFitWidth = true
-        winLabel.numberOfLines = 1
+        winLabel.numberOfLines = 2
         winLabel.lineBreakMode = .byClipping
-
         winLabel.isHidden = false
         winLabel.isEnabled = true
         
+        scoreCounter = game.finalScore
+        winLabel.text = "You win!\nYour score: \(scoreCounter)"
+        scoreCounter = game.finalScore
     }
 }

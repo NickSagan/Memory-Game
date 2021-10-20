@@ -11,6 +11,9 @@ import Foundation
 // main game logic
 class MemoryLogic {
     
+    // Userdefaults to store best score
+    let defaults = UserDefaults.standard
+    
     // Instance of audioplayer
     var player: AVAudioPlayer!
     
@@ -21,12 +24,25 @@ class MemoryLogic {
         player!.play()
     }
     
+    private var lastTimerValue = 0
     private(set) var cards = [Card]()
     private var score = 0
+    var finalScore = 0
     private var flipCounter = 0
     private(set) var matchCounter: Int
     private(set) var winGame = false {
         didSet {
+            // Reading bestScore value from user defaults
+            let bestScore = defaults.integer(forKey: "bestScore")
+            
+            // Finally update finalscore
+            finalScore = score - lastTimerValue
+            
+            // Writing best score to user defaults if needed
+            if finalScore > bestScore {
+                defaults.set(finalScore, forKey: "bestScore")
+            }
+            
             // Play WIN sound
             playSound("win")
             // Go through array of cards to face them all down
@@ -40,12 +56,14 @@ class MemoryLogic {
     
     // returning current score
     func getScore(timer: Int) -> Int {
-        return score - timer
+        lastTimerValue = timer
+        finalScore = score - lastTimerValue
+        return finalScore
     }
     
     // returning current flips
     func getflipCounter() -> Int {
-        return flipCounter
+        flipCounter
     }
     
     // this var is to save ID of the only one opened card on the playground
@@ -70,12 +88,14 @@ class MemoryLogic {
         // check if card's index is in array of cards of force crash
         assert(cards.indices.contains(index), "MemoryLogic.chooseCard() - index is not in the cards array")
         
-        // if card is not opened
+        // if card is not matched
         if !cards[index].isMatched {
             
             // Updating counters
-            flipCounter += 1
-            score -= 1
+            if !cards[index].isFaceUp {
+                flipCounter += 1
+                score -= 1
+            }
             
             // Check if there is already opened card and if index of new card is equal to this opened card
             if let matchIndex = onlyOneFaceUpCard, matchIndex != index {

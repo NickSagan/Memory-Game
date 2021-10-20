@@ -12,6 +12,10 @@ class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){}
     var emoji = Theme()
     @IBOutlet weak var emojiThemePicker: UIPickerView!
+    @IBOutlet weak var bestScoreLabel: UILabel!
+    @IBOutlet weak var chosenThemeLabel: UILabel!
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +25,24 @@ class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPic
         emojiThemePicker.delegate = self
         
         // Set default theme in case user will not chose any
-        emoji.setTheme(set: "Animals")
-        view.backgroundColor = Theme.backgroundColor
+        emoji.setTheme(set: "Food")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        emojiThemePicker.selectRow(2, inComponent: 0, animated: true)
+
         // Refreshing emoji array in case user will not chose any theme after New Game button pressed. And because viewDidLoad will not setTheme again anymore
         emoji.refreshEmojiArray()
+        // Updating best score label
+        bestScoreLabel.text = "Your best score: \(defaults.integer(forKey: "bestScore"))"
+        var sampleEmoji = ""
+        for i in 0...3 {
+            sampleEmoji += Theme.emojiArray[i]
+        }
+        chosenThemeLabel.text = sampleEmoji
+        chosenThemeLabel.adjustsFontSizeToFitWidth = true
+        chosenThemeLabel.numberOfLines = 1
+        chosenThemeLabel.lineBreakMode = .byClipping
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -51,9 +66,12 @@ class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         // returns chosen theme
         emoji.setTheme(set: emoji.theme[row])
-        // set bgcolor, depends on theme
-        view.backgroundColor = Theme.backgroundColor
-        //someMaybeLabel.text = emoji.theme[row]
+        
+        var sampleEmoji = ""
+        for i in 0...3 {
+            sampleEmoji += Theme.emojiArray[i]
+        }
+        chosenThemeLabel.text = sampleEmoji
     }
     
 }
