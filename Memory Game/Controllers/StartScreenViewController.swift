@@ -26,6 +26,8 @@ class StartScreenViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         // Set default theme in case user will not chose any
         emoji.setTheme(set: "Food")
+        
+        // set corners to button
     }
     
     override func viewWillAppear(_ animated: Bool) {
