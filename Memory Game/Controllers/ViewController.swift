@@ -23,7 +23,13 @@ class ViewController: UIViewController {
     // Counters and timer
     private(set) var flipCounter = 0 { didSet { flipsLabel.text = "Flips: \(flipCounter)" } }
     private(set) var scoreCounter = 0 { didSet { scoreLabel.text = "Score: \(scoreCounter)" } }
-    private(set) var gameTimer = 0 { didSet { timerLabel.text = "Time: \(gameTimer)" } }
+    private(set) var gameTimer = 0 {
+        didSet {
+            timerLabel.text = "Time: \(gameTimer)"
+            title = "Time: \(gameTimer)"
+        }
+        
+    }
     
     // timerIsActive used to activate timer only once in a game
     var timerIsActive = false

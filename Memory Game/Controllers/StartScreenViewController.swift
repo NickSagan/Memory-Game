@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StartScreenViewController: UIViewController {
+class StartScreenViewController: UITableViewController {
 
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){}
     var emoji = Theme()
