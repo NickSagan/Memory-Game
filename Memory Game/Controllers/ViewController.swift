@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var flipsLabel: UILabel!
     @IBOutlet var cardsCollection: [UIButton]!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
@@ -21,12 +20,11 @@ class ViewController: UIViewController {
     var numberOfPairsOfCards: Int {return (cardsCollection.count + 1) / 2}
     
     // Counters and timer
-    private(set) var flipCounter = 0 { didSet { flipsLabel.text = "Flips: \(flipCounter)" } }
+    private(set) var flipCounter = 0
     private(set) var scoreCounter = 0 { didSet { scoreLabel.text = "Score: \(scoreCounter)" } }
     private(set) var gameTimer = 0 {
         didSet {
             timerLabel.text = "Time: \(gameTimer)"
-            title = "Time: \(gameTimer)"
         }
         
     }
@@ -37,9 +35,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let username = NSUserName()
-        print(username)
         
         // Set all counters to 0
         flipCounter = 0
@@ -133,13 +128,13 @@ class ViewController: UIViewController {
         
         // Show WIN label and autoresize it so it will fit any device
         winLabel.adjustsFontSizeToFitWidth = true
-        winLabel.numberOfLines = 2
+        winLabel.numberOfLines = 4
         winLabel.lineBreakMode = .byClipping
         winLabel.isHidden = false
         winLabel.isEnabled = true
         
         scoreCounter = game.finalScore
-        winLabel.text = "You win!\nYour score: \(scoreCounter)"
+        winLabel.text = "You win!\nScore: \(scoreCounter)\nFlips: \(flipCounter)\nTime: \(gameTimer)"
         scoreCounter = game.finalScore
     }
 }

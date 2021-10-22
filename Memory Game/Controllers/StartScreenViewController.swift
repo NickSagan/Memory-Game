@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StartScreenViewController: UITableViewController {
+class StartScreenViewController: UIViewController {
 
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){}
     var emoji = Theme()
@@ -18,7 +18,8 @@ class StartScreenViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(UIDevice.current.name)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,4 +36,5 @@ class StartScreenViewController: UITableViewController {
         chosenThemeLabel.lineBreakMode = .byClipping
     }
 
+    
 }
