@@ -19,17 +19,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="llb-se-nQu">
-                                <rect key="frame" x="35" y="244.66666666666666" width="320" height="354.66666666666674"/>
+                                <rect key="frame" x="57.333333333333343" y="659.33333333333337" width="275.66666666666663" height="130.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your best score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qn-9w-ZUA">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="26.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275.66666666666669" height="26.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="bVn-4g-Q3h">
+                                        <rect key="frame" x="0.0" y="34.333333333333258" width="275.66666666666669" height="38.333333333333343"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Chose any theme     ">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="32"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVC-Pr-wFa">
-                                        <rect key="frame" x="0.0" y="34.333333333333343" width="320" height="50"/>
-                                        <color key="backgroundColor" white="0.21802307959316539" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="80.666666666666629" width="275.66666666666669" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="8iI-IJ-DFp"/>
                                         </constraints>
@@ -43,37 +55,19 @@
                                             <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="uxW-ij-7M2"/>
                                         </connections>
                                     </button>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="puU-cC-xfl">
-                                        <rect key="frame" x="0.0" y="92.333333333333343" width="320" height="216.00000000000003"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="bVn-4g-Q3h">
-                                        <rect key="frame" x="0.0" y="316.33333333333337" width="320" height="38.333333333333314"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Chose any theme     ">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="32"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Xy-tL-O6t"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5Xy-tL-O6t" firstAttribute="bottom" secondItem="llb-se-nQu" secondAttribute="bottom" constant="20" id="UpE-hm-4ZE"/>
                             <constraint firstItem="llb-se-nQu" firstAttribute="centerX" secondItem="sGZ-N6-tRN" secondAttribute="centerX" id="hHG-AM-LQb"/>
-                            <constraint firstItem="llb-se-nQu" firstAttribute="centerY" secondItem="sGZ-N6-tRN" secondAttribute="centerY" id="tyv-VQ-Hzy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bestScoreLabel" destination="1Qn-9w-ZUA" id="tfd-i2-IjC"/>
                         <outlet property="chosenThemeLabel" destination="bVn-4g-Q3h" id="Tw6-PL-rot"/>
-                        <outlet property="emojiThemePicker" destination="puU-cC-xfl" id="2ck-XF-Txc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pl7-8F-tJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

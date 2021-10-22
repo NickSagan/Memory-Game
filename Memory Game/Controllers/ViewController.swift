@@ -31,6 +31,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let username = NSUserName()
+        print(username)
+        
         // Set all counters to 0
         flipCounter = 0
         scoreCounter = 0

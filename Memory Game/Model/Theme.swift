@@ -14,8 +14,8 @@ class Theme {
     static var cardBackColor: UIColor = .systemBlue
     static var cardFrontColor: UIColor = .systemBlue
     
-    func setTheme(set theme: String){
-        selectedTheme = theme
+    func setTheme(){
+        selectedTheme = self.theme[5.arc4random]
         refreshEmojiArray()
     }
     
